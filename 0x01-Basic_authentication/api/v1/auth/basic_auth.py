@@ -9,7 +9,7 @@ class BasicAuth(Auth):
     """ BasicAuth class that inherits from Auth """
 
     def decode_base64_authorization_header(
-        self, base64_authorization_header: str) -> str:
+            self, base64_authorization_header: str) -> str:
         """ Decode the Base64 authorization header """
         if base64_authorization_header is None:
             return None

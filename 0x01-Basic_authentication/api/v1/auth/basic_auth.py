@@ -21,5 +21,3 @@ class BasicAuth(Auth):
             return decoded_str
         except:
             return None
-
-        return authorization_header[6:]

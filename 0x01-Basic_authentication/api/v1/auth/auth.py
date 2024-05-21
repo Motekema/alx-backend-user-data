@@ -27,12 +27,10 @@ class Auth:
 
         return True
 
-
-def authorization_header(self, request=None) -> str:
+    def authorization_header(self, request=None) -> str:
         """ Method to get the authorization header """
         return None
 
-
-def current_user(self, request=None) -> TypeVar('User'):
+    def current_user(self, request=None) -> TypeVar('User'):
         """ Method to get the current user """
         return None

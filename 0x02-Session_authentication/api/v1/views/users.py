@@ -8,8 +8,8 @@ from models.user import User
 
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
 def view_all_users() -> str:
-    """GET /api/v1/users
-    Return:
+    """GET /API/v1/users
+    Display:
       - list of all User objects JSON represented.
     """
     all_users = [user.to_json() for user in User.all()]
@@ -18,10 +18,10 @@ def view_all_users() -> str:
 
 @app_views.route('/users/<user_id>', methods=['GET'], strict_slashes=False)
 def view_one_user(user_id: str = None) -> str:
-    """GET /api/v1/users/:id
+    """GET /API/v1/users/:id
     Path parameter:
       - User ID.
-    Return:
+    Display:
       - User object JSON represented.
       - 404 if the User ID doesn't exist.
     """
@@ -40,10 +40,10 @@ def view_one_user(user_id: str = None) -> str:
 
 @app_views.route('/users/<user_id>', methods=['DELETE'], strict_slashes=False)
 def delete_user(user_id: str = None) -> str:
-    """DELETE /api/v1/users/:id
+    """Delete /API/v1/users/:id
     Path parameter:
       - User ID.
-    Return:
+    Display:
       - empty JSON is the User has been correctly deleted.
       - 404 if the User ID doesn't exist.
     """
@@ -58,13 +58,13 @@ def delete_user(user_id: str = None) -> str:
 
 @app_views.route('/users', methods=['POST'], strict_slashes=False)
 def create_user() -> str:
-    """POST /api/v1/users/
+    """POST /API/v1/users/
     JSON body:
       - email.
       - password.
       - last_name (optional).
       - first_name (optional).
-    Return:
+    Display:
       - User object JSON represented.
       - 400 if can't create the new User.
     """
@@ -75,7 +75,7 @@ def create_user() -> str:
     except Exception as e:
         rj = None
     if rj is None:
-        error_msg = "Wrong format"
+        error_msg = "Wrong format please try"
     if error_msg is None and rj.get("email", "") == "":
         error_msg = "email missing"
     if error_msg is None and rj.get("password", "") == "":
@@ -96,13 +96,13 @@ def create_user() -> str:
 
 @app_views.route('/users/<user_id>', methods=['PUT'], strict_slashes=False)
 def update_user(user_id: str = None) -> str:
-    """PUT /api/v1/users/:id
+    """ PUT /API/v1/users/:id
     Path parameter:
       - User ID.
     JSON body:
       - last_name (optional).
       - first_name (optional).
-    Return:
+    Display:
       - User object JSON represented.
       - 404 if the User ID doesn't exist.
       - 400 if can't update the User.

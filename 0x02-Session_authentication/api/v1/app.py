@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Route module for the API.
+"""Module for the API.
 """
 import os
 from os import getenv
@@ -33,28 +33,28 @@ if auth_type == 'session_db_auth':
 
 @app.errorhandler(404)
 def not_found(error) -> str:
-    """Not found handler.
+    """Not found.
     """
     return jsonify({"error": "Not found"}), 404
 
 
 @app.errorhandler(401)
 def unauthorized(error) -> str:
-    """Unauthorized handler.
+    """ Unauthorized.
     """
     return jsonify({"error": "Unauthorized"}), 401
 
 
 @app.errorhandler(403)
 def forbidden(error) -> str:
-    """Forbidden handler.
+    """Forbidden.
     """
     return jsonify({"error": "Forbidden"}), 403
 
 
 @app.before_request
 def authenticate_user():
-    """Authenticates a user before processing a request.
+    """ Authenticate a user before processing a request.
     """
     if auth:
         excluded_paths = [

@@ -20,21 +20,14 @@ class Auth:
             path += '/'
 
         for ex_path in excluded_paths:
-            if ex_path[-1] != '/':
-                ex_path += '/'
-            if path == ex_path:
-                return False
+            if ex_path[-1] == '*':
+                ex_path = ex_path[:-1]  # Remove the '*' at the end
+                if path.startswith(ex_path):
+                    return False
+            else:
+                if ex_path[-1] != '/':
+                    ex_path += '/'
+                if path == ex_path:
+                    return False
 
         return True
-
-    def authorization_header(self, request=None) -> str:
-        """ Method to get the authorization header """
-        if request is None:
-            return None
-        if 'Authorization' not in request.headers:
-            return None
-        return request.headers['Authorization']
-
-    def current_user(self, request=None) -> TypeVar('User'):
-        """ Method to get the current user """
-        return None

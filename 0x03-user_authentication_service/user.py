@@ -23,6 +23,8 @@ class User(Base):
     reset_token = Column(String(250), nullable=True)
 
 # This is just for demonstration; usually.
+
+
 if __name__ == "__main__":
 
     

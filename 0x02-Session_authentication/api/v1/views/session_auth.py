@@ -11,8 +11,8 @@ from api.v1.views import app_views
 
 @app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
 def login() -> Tuple[str, int]:
-    """POST /api/v1/auth_session/login
-    Return:
+    """POST /API/v1/auth_session/login
+    Display:
       - JSON representation of a User object.
     """
     not_found_res = {"error": "no user found for this email"}
@@ -39,8 +39,8 @@ def login() -> Tuple[str, int]:
 @app_views.route(
     '/auth_session/logout', methods=['DELETE'], strict_slashes=False)
 def logout() -> Tuple[str, int]:
-    """DELETE /api/v1/auth_session/logout
-    Return:
+    """Delete /API/v1/auth_session/logout
+    Dispaly:
       - An empty JSON object.
     """
     from api.v1.app import auth

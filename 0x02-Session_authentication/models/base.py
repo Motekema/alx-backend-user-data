@@ -13,11 +13,11 @@ DATA = {}
 
 
 class Base():
-    """Base class.
+    """ Base class.
     """
 
     def __init__(self, *args: list, **kwargs: dict):
-        """Initialize a Base instance.
+        """ Initialize a Base instance.
         """
         s_class = str(self.__class__.__name__)
         if DATA.get(s_class) is None:
@@ -94,7 +94,7 @@ class Base():
         self.__class__.save_to_file()
 
     def remove(self):
-        """Remove object.
+        """Remove the object.
         """
         s_class = self.__class__.__name__
         if DATA[s_class].get(self.id) is not None:
@@ -123,7 +123,7 @@ class Base():
 
     @classmethod
     def search(cls, attributes: dict = {}) -> List[TypeVar('Base')]:
-        """Search all objects with matching attributes.
+        """ Search all objects with matching attributes.
         """
         s_class = cls.__name__
         def _search(obj):

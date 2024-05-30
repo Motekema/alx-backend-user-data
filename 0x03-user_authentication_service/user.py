@@ -22,8 +22,10 @@ class User(Base):
     session_id = Column(String(250), nullable=True)
     reset_token = Column(String(250), nullable=True)
 
-# This is just for demonstration; usually, you don't include this in the model file.
+# This is just for demonstration; usually.
 if __name__ == "__main__":
+
+    
     from sqlalchemy.orm import sessionmaker
 
     engine = create_engine('sqlite:///:memory:')

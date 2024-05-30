@@ -30,7 +30,6 @@ if __name__ == "__main__":
     from sqlalchemy.orm import sessionmaker
     engine = create_engine('sqlite:///:memory:')
     Base.metadata.create_all(engine)
-    
     Session = sessionmaker(bind=engine)
     session = Session()
 
